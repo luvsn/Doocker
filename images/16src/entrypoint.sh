@@ -29,5 +29,5 @@ check_config "db_user" "$USER"
 check_config "db_password" "$PASSWORD"
 
 source /opt/venv/bin/activate;
-python3 wait-for-psql.py ${DB_ARGS[@]} --timeout=30
-python3 init.py
+python3 /docker/wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+python3 /docker/launch-server.py

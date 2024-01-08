@@ -61,6 +61,7 @@ RUN curl -o wkhtmltox.deb -sSL https://github.com/wkhtmltopdf/packaging/releases
 # Download Odoo sources
 RUN curl -o odoo.tar.xz -sSL https://nightly.odoo.com/16.0/nightly/deb/odoo_16.0.latest.tar.xz
 RUN tar -xf odoo.tar.xz
+RUN rm odoo.tar.xz
 
 
 # Copy requirements
@@ -80,12 +81,13 @@ RUN useradd -m odoo
 RUN printf "odoo\nodoo" | passwd odoo
 
 # Copy entrypoint script and Odoo configuration file
+RUN mkdir /docker/
 COPY odoo.conf /etc/odoo/
 COPY entrypoint.sh /
-COPY wait-for-psql.py /
-COPY init.py /
-COPY run-server.sh /
-COPY kill-python.sh /
+COPY scripts/docker/wait-for-psql.py /docker/
+COPY scripts/docker/launch-server.py /docker/
+COPY scripts/run-server.sh /
+COPY scripts/kill-server.sh /
 
 
 
@@ -99,7 +101,7 @@ RUN chown -R odoo /src
 RUN mkdir /var/lib/odoo/
 RUN chown -R odoo /var/lib/odoo/
 RUN chmod a+x run-server.sh
-RUN chmod a+x kill-python.sh
+RUN chmod a+x kill-server.sh
 
 
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
@@ -110,8 +112,8 @@ EXPOSE 8069 8071 8072
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
 
-COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
-COPY init.py /usr/local/bin/init.py
+COPY scripts/docker/wait-for-psql.py /usr/local/bin/wait-for-psql.py
+COPY scripts/docker/launch-server.py /usr/local/bin/launch-server.py
 
 RUN echo "alias rs='bash /run-server.sh'" > /home/odoo/.bashrc
 

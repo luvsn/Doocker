@@ -1,4 +1,4 @@
 #! /bin/bash
 
-kill 30;
+kill 31;
 

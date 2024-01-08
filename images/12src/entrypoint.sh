@@ -28,5 +28,5 @@ check_config "db_port" "$PORT"
 check_config "db_user" "$USER"
 check_config "db_password" "$PASSWORD"
 
-python3 wait-for-psql.py ${DB_ARGS[@]} --timeout=30
-python3 run-server.py
+python3 /docker/wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+python3 /docker/launch-server.py

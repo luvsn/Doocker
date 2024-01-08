@@ -2,6 +2,10 @@ import os
 import psycopg2
 import logging
 
+# Called by entrypoint.sh
+# Checks whether a database exists before starting the server
+# If not, let Odoo initialise it
+
 _logger = logging.getLogger(__name__)
 
 sql = None

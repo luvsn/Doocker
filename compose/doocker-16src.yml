@@ -7,7 +7,7 @@ services:
          - "5454:5432"
        volumes:
          - odoo-db-data:/var/lib/postgresql/data     
-         - ../images/12src/init.sql:/docker-entrypoint-initdb.d/init.sql    
+         - ../images/16src/scripts/docker/init-db.sql:/docker-entrypoint-initdb.d/init.sql    
        environment:
           - POSTGRES_DB=postgres
           - POSTGRES_USER=postgres
