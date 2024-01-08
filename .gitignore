@@ -1,0 +1,2 @@
+extra-addons/*
+!extra-addons/README.md
