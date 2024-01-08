@@ -37,7 +37,7 @@ else
 
   if [ $version = -1 ]
   then
-    sudo docker compose -f compose/doocker-latest.yml up;
+    sudo docker compose -f compose/doocker-17.yml up;
   else
     sudo docker compose -f compose/doocker-"${version}".yml up;
   fi
