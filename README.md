@@ -2,9 +2,10 @@
 
 _Doocker_ provides Docker-Compose images for various Odoo versions, allowing to run Odoo fully isolated inside Docker containers.
 
-**! Warning !**
+> [!WARNING]
+> For testing purposes only, use at your risk.
 
-For testing purposes only, use at your risk.
+
 
 
 ## Features
@@ -12,9 +13,8 @@ For testing purposes only, use at your risk.
 - Allows to run _from source_ versions enabling to modify Odoo's source code directly from inside the container.
 - Supports custom addons.
 
-**! Warning !**
-
-Doocker currently does not support multiple Odoo containers running at the same time, as they will all share the same PostgreSQL container. 
+> [!WARNING]
+> Doocker currently does not support multiple Odoo containers running at the same time, as they will all share the same PostgreSQL container. 
 
 ## Supported versions
  - Odoo 17,16,15,14,13,12,11,10
@@ -117,9 +117,8 @@ One can update a particular module using `./run-server.sh -u <module>`
 
 Alternatively, one can use `sudo docker exec -it <id> /bin/bash` to access the container.
 
-**! Warning !**
-
-Any modification made to the code inside the container is lost when recreating the container!
+> [!WARNING]
+>  Any modification made to the code inside the container is lost when recreating the container!
 
 ### Functioning
 
