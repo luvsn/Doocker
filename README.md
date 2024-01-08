@@ -3,7 +3,7 @@
 _Doocker_ provides Docker-Compose images for various Odoo versions, allowing to run Odoo fully isolated inside Docker containers.
 
 > [!WARNING]
-> For testing purposes only, use at your risk.
+> For testing purposes only, use at your own risk.
 
 
 
