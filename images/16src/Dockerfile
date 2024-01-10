@@ -99,7 +99,9 @@ RUN mkdir -p /mnt/extra-addons
 RUN chown -R odoo /mnt/extra-addons
 RUN chown -R odoo /src
 RUN mkdir /var/lib/odoo/
-RUN chown -R odoo /var/lib/odoo/
+RUN chown -R odoo:odoo /var/lib/odoo/
+RUN mkdir /var/lib/odoo/sessions
+RUN chmod -R 777 /var/lib/odoo/sessions
 RUN chmod a+x run-server.sh
 RUN chmod a+x kill-server.sh
 

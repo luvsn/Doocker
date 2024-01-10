@@ -92,6 +92,12 @@ Version **16** instance (with persistence):
 
 Currently available versions from source: 17src, 16src, 12src.
 
+Current user needs to be in the docker group:
+
+`sudo usermod -aG docker $USER`
+
+Restart the machine, or at least log out and in again to make changes effective.
+
 Start the containers and let Odoo initialise the database:
 
 `./run-docker -f -v 17src`
